@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827"><meta name="description" content="World Without Limits — offline superhero tabletop RPG">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+<title>World Without Limits</title>
+</head>
+<body>
+<header class="topbar">
+  <button class="brand" data-page="dashboard"><span class="sigil">W</span><span><b>WORLD WITHOUT LIMITS</b><small>SOLO SUPERHERO CHRONICLES</small></span></button>
+  <div class="top-actions"><span id="saveStatus" class="save-status">● LOCAL SAVE</span><button id="menuToggle" class="icon-btn" aria-label="Open navigation">☰</button></div>
+</header>
+<div class="shell">
+<aside id="sidebar" class="sidebar">
+  <div class="campaign-chip"><span class="eyebrow">ACTIVE CHRONICLE</span><b id="campaignName">New Chronicle</b><small id="campaignMeta">Earth · Day 1</small></div>
+  <nav id="nav">
+    <button class="nav-item active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+    <button class="nav-item" data-page="adventure">✦ <span>Adventure / DM</span></button>
+    <button class="nav-item" data-page="character">◉ <span>Character Sheet</span></button>
+    <button class="nav-item" data-page="skills">▤ <span>Skills & Attributes</span></button>
+    <button class="nav-item" data-page="powers">ϟ <span>Powers</span></button>
+    <button class="nav-item" data-page="traits">◇ <span>Merits & Flaws</span></button>
+    <button class="nav-item" data-page="backgrounds">♜ <span>Backgrounds</span></button>
+    <button class="nav-item" data-page="inventory">▣ <span>Inventory</span></button>
+    <button class="nav-item" data-page="world">◎ <span>World & Locations</span></button>
+    <button class="nav-item" data-page="people">♧ <span>Relationships</span></button>
+    <button class="nav-item" data-page="journal">☷ <span>Journal</span></button>
+    <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+  </nav>
+  <div class="sidebar-foot">OFFLINE-FIRST · D10 STORYTELLER-INSPIRED</div>
+</aside>
+<main id="main" class="main">
+<section class="page active" id="page-dashboard">
+  <div class="hero-panel"><div><span class="eyebrow">YOUR WORLD. YOUR CONSEQUENCES.</span><h1>There are no limits.<br><em>Only choices.</em></h1><p>A persistent superhero universe shaped by your actions.</p><button class="primary" data-page="adventure">CONTINUE CHRONICLE →</button></div><div class="hero-mark">W<span>∞</span></div></div>
+  <div class="stats-grid">
+    <article class="stat-card"><span>POWER LEVEL</span><b id="dashPower">1 · ENHANCED</b><small>Overall potential</small></article>
+    <article class="stat-card"><span>EXPERIENCE</span><b id="dashXp">0 XP</b><small>Available advancement</small></article>
+    <article class="stat-card"><span>WORLD DAY</span><b id="dashDay">DAY 1</b><small id="dashLocation">Unknown location</small></article>
+    <article class="stat-card"><span>REPUTATION</span><b id="dashRep">Unknown</b><small>How the world sees you</small></article>
+  </div>
+  <div class="two-col">
+    <article class="panel"><div class="panel-head"><h2>CHRONICLE STATUS</h2><button class="text-btn" data-page="journal">OPEN JOURNAL →</button></div><div id="recentLog" class="log-list"><p class="muted">Your story begins here. Enter the adventure to meet your first challenge.</p></div></article>
+    <article class="panel"><div class="panel-head"><h2>QUICK ACCESS</h2></div><div class="quick-grid"><button data-page="character">◉ Character</button><button data-page="powers">ϟ Powers</button><button data-page="inventory">▣ Inventory</button><button data-page="people">♧ Sidekicks</button></div><div class="notice"><b>Offline mode active</b><p>Your campaign is stored locally on this device. Export a backup regularly.</p></div></article>
+  </div>
+</section>
+<section class="page" id="page-adventure">
+  <div class="page-heading"><div><span class="eyebrow">THE WORLD IS MOVING</span><h1>Adventure</h1><p>Your Game Master controls the world. You control your character.</p></div><span class="pill">LOCAL DM ENGINE</span></div>
+  <div class="dm-layout">
+    <div class="panel scene-panel"><div class="scene-top"><span class="eyebrow">CURRENT SCENE</span><span id="sceneClock" class="muted">DAY 1 · 08:00</span></div><h2 id="sceneTitle">A city waiting to happen</h2><div id="sceneText" class="scene-text">The city stretches beneath a pale morning sky. Traffic rolls through the streets, news screens flicker above the crowds, and somewhere nearby a situation is beginning to unfold. What do you do?</div><div id="dmLog" class="dm-log" aria-live="polite"></div><form id="actionForm" class="action-form"><label for="playerAction">WHAT DO YOU DO?</label><textarea id="playerAction" rows="3" placeholder="Describe any action in your own words..."></textarea><div class="action-row"><button type="button" id="scenePrompt" class="secondary">GENERATE EVENT</button><button class="primary" type="submit">SUBMIT ACTION →</button></div></form></div>
+    <div class="panel side-panel"><h2>GAME MASTER TOOLS</h2><button class="tool-btn" id="rollCheck">🎲 Roll D10 pool</button><button class="tool-btn" id="randomEvent">✦ Random world event</button><button class="tool-btn" id="awardXp">＋ Award 1 XP</button><button class="tool-btn" id="advanceDay">◷ Advance time</button><hr><h3>PHYSICAL DICE</h3><p class="muted small">Roll your own dice and enter the results. The engine counts successes.</p><label>Dice results (comma-separated)</label><input id="physicalDice" placeholder="8, 10, 4, 1, 7"><label>Difficulty</label><input id="difficulty" type="number" min="2" max="10" value="6"><button class="secondary full" id="resolvePhysical">RESOLVE MY ROLL</button><div id="rollResult" class="roll-result">No roll yet.</div><hr><div class="mini-stat"><span>HEALTH</span><b id="dmHealth">7 / 7</b></div><div class="mini-stat"><span>WILLPOWER</span><b id="dmWill">5 / 5</b></div></div>
+  </div>
+</section>
+<section class="page" id="page-character">
+ <div class="page-heading"><div><span class="eyebrow">WHO STANDS AGAINST THE IMPOSSIBLE?</span><h1>Character Sheet</h1><p>Your identity, history and current condition.</p></div><button class="primary" id="saveCharacter">SAVE SHEET</button></div>
+ <div class="panel"><div class="form-grid">
+  <label>Character name<input data-char="name" placeholder="Character name"></label><label>Hero / Villain alias<input data-char="alias" placeholder="Codename"></label><label>Concept<input data-char="concept" placeholder="e.g. reluctant cosmic guardian"></label><label>Nature<input data-char="nature" placeholder="Core motivation"></label><label>Demeanor<input data-char="demeanor" placeholder="How others see you"></label><label>Species / Origin<input data-char="species" placeholder="Human, alien, mutant..."></label><label>Affiliation<input data-char="affiliation" placeholder="Team or organization"></label><label>Age<input data-char="age" placeholder="Age"></label><label>Current location<input data-char="location" placeholder="City / dimension"></label><label>Morality / Code<input data-char="morality" placeholder="Personal code"></label>
+ </div><label>Appearance & biography<textarea data-char="bio" rows="3" placeholder="Describe your character..."></textarea></label></div>
+ <div class="two-col">
+  <div class="panel"><h2>VITALS</h2><div class="form-grid compact"><label>Health maximum<input type="number" data-char-num="healthMax" min="1" value="7"></label><label>Current damage<input type="number" data-char-num="damage" min="0" value="0"></label><label>Willpower<input type="number" data-char-num="willpower" min="0" value="5"></label><label>Experience<input type="number" data-char-num="xp" min="0" value="0"></label><label>Power Level<input type="number" data-char-num="powerLevel" min="1" max="10" value="1"></label><label>Generation / Legacy<input type="number" data-char-num="generation" min="0" max="10" value="0"></label></div><p class="muted small">Power Level 5 is Omega. Generation / Legacy represents heritage, not strength.</p></div>
+  <div class="panel"><h2>POWER CLASSIFICATION</h2><div class="classification"><b id="powerClass">ENHANCED</b><span id="powerDesc">Above ordinary human limits.</span></div><label>Threat classification<input data-char="threat" placeholder="Unknown / Local / Global / Cosmic"></label><label>Power limitations<textarea data-char="limitations" rows="2" placeholder="Costs, triggers, weaknesses..."></textarea></label></div>
+ </div>
+</section>
+<section class="page" id="page-skills">
+ <div class="page-heading"><div><span class="eyebrow">ATTRIBUTES & ABILITIES</span><h1>Skills</h1><p>Classic three-by-three attributes with expandable talents, skills and knowledges.</p></div></div>
+ <div id="attributeGroups" class="attribute-grid"></div>
+ <div class="panel"><div class="panel-head"><h2>TALENTS · SKILLS · KNOWLEDGES</h2><button class="secondary" id="addSkill">＋ ADD ABILITY</button></div><div id="skillList" class="editable-list"></div></div>
+</section>
+<section class="page" id="page-powers">
+ <div class="page-heading"><div><span class="eyebrow">UNLOCK YOUR POTENTIAL</span><h1>Powers</h1><p>Power ranks are independent from overall Power Level. Build custom combinations.</p></div><button class="primary" id="addPower">＋ ADD POWER</button></div>
+ <div class="filter-row"><input id="powerSearch" placeholder="Search power library..."><select id="powerCategory"><option value="">All categories</option><option>Physical</option><option>Energy</option><option>Psychic</option><option>Magic</option><option>Cosmic</option><option>Reality</option><option>Space / Time</option><option>Biological</option><option>Technology</option><option>Other</option></select></div>
+ <div id="powerList" class="card-grid"></div>
+</section>
+<section class="page" id="page-traits">
+ <div class="page-heading"><div><span class="eyebrow">ADVANTAGES & COMPLICATIONS</span><h1>Merits & Flaws</h1><p>Every trait should matter mechanically and in the story.</p></div><button class="primary" id="addTrait">＋ ADD TRAIT</button></div>
+ <div class="two-col"><div class="panel"><h2 class="good">MERITS</h2><div id="meritList" class="editable-list"></div></div><div class="panel"><h2 class="bad">FLAWS & WEAKNESSES</h2><div id="flawList" class="editable-list"></div></div></div>
+</section>
+<section class="page" id="page-backgrounds">
+ <div class="page-heading"><div><span class="eyebrow">WHAT YOU HAVE BEHIND YOU</span><h1>Backgrounds</h1><p>White Wolf-inspired advantages, networks and legacies.</p></div><button class="primary" id="addBackground">＋ ADD BACKGROUND</button></div>
+ <div class="notice"><b>Generation / Legacy ≠ Power Level</b><p>Legacy tracks ancestry, lineage or source of power. Power Level measures overall potential. A Level 5 character is Omega regardless of generation.</p></div>
+ <div id="backgroundList" class="card-grid"></div>
+</section>
+<section class="page" id="page-inventory">
+ <div class="page-heading"><div><span class="eyebrow">EVERYTHING YOU OWN</span><h1>Inventory</h1><p>No arbitrary slot limit. Store items in nested locations and containers.</p></div><button class="primary" id="addItem">＋ ADD ITEM</button></div>
+ <div class="inventory-tools"><input id="itemSearch" placeholder="Search all stored items..."><select id="itemLocation"><option value="">All storage locations</option><option>Personal</option><option>Utility Belt</option><option>Backpack</option><option>Headquarters</option><option>Armory</option><option>Vehicle</option><option>Warehouse</option><option>Vault</option><option>Dimensional Storage</option></select></div>
+ <div class="panel"><div class="panel-head"><h2>ITEM REGISTER</h2><span id="itemCount" class="muted small">0 ITEMS</span></div><div class="table-wrap"><table><thead><tr><th>ITEM</th><th>TYPE</th><th>QTY</th><th>LOCATION</th><th>CONDITION</th><th></th></tr></thead><tbody id="itemRows"></tbody></table></div></div>
+ <div class="two-col"><div class="panel"><h2>WEALTH & RESOURCES</h2><label>Available money<input id="money" placeholder="$0"></label><label>Income / assets<textarea id="assets" rows="2" placeholder="Income, debts, property..."></textarea></label></div><div class="panel"><h2>ENCUMBRANCE</h2><p class="muted">Weight tracking is optional. Inventory capacity is not capped.</p><label><input type="checkbox" id="encumbrance"> Track carrying weight</label></div></div>
+</section>
+<section class="page" id="page-world">
+ <div class="page-heading"><div><span class="eyebrow">A LIVING MULTIVERSE</span><h1>World & Locations</h1><p>Track places, organizations, events and your properties.</p></div><button class="primary" id="addLocation">＋ ADD LOCATION</button></div>
+ <div class="two-col"><div class="panel"><div class="panel-head"><h2>KNOWN LOCATIONS</h2></div><div id="locationList" class="editable-list"></div></div><div class="panel"><h2>VEHICLES & PROPERTIES</h2><button class="tool-btn" id="addVehicle">＋ Add vehicle</button><button class="tool-btn" id="addProperty">＋ Add property / base</button><div id="assetList" class="editable-list"></div></div></div>
+</section>
+<section class="page" id="page-people">
+ <div class="page-heading"><div><span class="eyebrow">YOUR WORLD IS FULL OF PEOPLE</span><h1>Relationships</h1><p>Allies, enemies, contacts, mentors, retainers and sidekicks.</p></div><button class="primary" id="addPerson">＋ ADD PERSON</button></div>
+ <div class="notice"><b>Sidekicks are full characters, not just a rating.</b><p>Give them attributes, skills, powers, inventory, loyalty and independent development. Their stories can continue while you're elsewhere.</p></div>
+ <div id="peopleList" class="card-grid"></div>
+</section>
+<section class="page" id="page-journal">
+ <div class="page-heading"><div><span class="eyebrow">THE WORLD REMEMBERS</span><h1>Journal</h1><p>Campaign events, discoveries, consequences and personal notes.</p></div><button class="primary" id="addNote">＋ ADD NOTE</button></div>
+ <div class="panel"><div id="journalList" class="log-list"></div></div>
+ <div class="panel"><h2>CAMPAIGN MANAGEMENT</h2><div class="action-row"><button class="secondary" id="exportSave">EXPORT CAMPAIGN JSON</button><label class="file-btn">IMPORT CAMPAIGN<input type="file" id="importSave" accept=".json,application/json"></label><button class="danger" id="resetSave">RESET LOCAL CAMPAIGN</button></div></div>
+</section>
+<section class="page" id="page-settings">
+ <div class="page-heading"><div><span class="eyebrow">MAKE THE GAME YOURS</span><h1>Settings</h1><p>Rules, automation, simulation and AI connection preferences.</p></div></div>
+ <div class="two-col">
+  <div class="panel"><h2>GAME RULES</h2><label>Dice success target<select id="targetNumber"><option value="6">6+</option><option value="7">7+</option><option value="8">8+</option><option value="9">9+</option></select></label><label>Ones / botches<select id="onesRule"><option value="subtract">Ones cancel successes</option><option value="ignore">Ignore ones</option><option value="botch">Botch if no successes and any 1</option></select></label><label>Combat lethality<select id="lethality"><option>Realistic</option><option>Heroic</option><option>Comic-book</option></select></label><label>XP rate<select id="xpRate"><option value="1">Standard</option><option value="2">Fast</option><option value="0.5">Slow</option></select></label></div>
+  <div class="panel"><h2>CAMPAIGN AUTOMATION</h2><label><input type="checkbox" data-setting="autoUpdate" checked> Automatic character updates</label><label><input type="checkbox" data-setting="confirmChanges" checked> Confirm important changes</label><label><input type="checkbox" data-setting="npcSimulation" checked> NPC/world simulation</label><label><input type="checkbox" data-setting="randomEncounters" checked> Random encounters</label><label><input type="checkbox" data-setting="reputation" checked> Reputation tracking</label><label><input type="checkbox" data-setting="relationships" checked> Relationship tracking</label><label><input type="checkbox" data-setting="injuries" checked> Injury tracking</label><label><input type="checkbox" data-setting="permadeath" checked> Permanent death</label><label><input type="checkbox" data-setting="encumbrance"> Encumbrance tracking</label><label><input type="checkbox" data-setting="ammo" checked> Ammunition tracking</label></div>
+ </div>
+ <div class="panel"><h2>AI CONNECTION</h2><p class="muted">This build runs its procedural DM locally. No AI provider is contacted. Online AI requires a separately configured secure service; never put a private API key in a public GitHub Pages repository.</p><label>DM mode<select id="aiMode"><option value="offline">Offline procedural DM</option><option value="online">Online AI (not configured)</option><option value="hybrid">Hybrid (not configured)</option><option value="none">No AI / rules only</option></select></label><div id="aiNotice" class="notice">Offline mode: no network requests are made by the game engine.</div></div>
+ <div class="panel"><h2>PERFORMANCE</h2><label><input type="checkbox" data-setting="reducedMotion" checked> Reduce animations</label><label><input type="checkbox" data-setting="lowMemory" checked> Low-memory mode</label><label><input type="checkbox" data-setting="lowGraphics" checked> Lightweight graphics</label><p class="muted small">The app stores data locally and loads only the current page's content. Artwork and optional content packs can be added later.</p></div>
+</section>
+</main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<dialog id="editorDialog"><form method="dialog" id="editorForm"><div class="dialog-head"><h2 id="dialogTitle">Add entry</h2><button class="icon-btn" value="cancel">×</button></div><div id="dialogFields" class="dialog-fields"></div><div class="action-row"><button class="secondary" value="cancel">CANCEL</button><button class="primary" id="dialogSave" value="save">SAVE ENTRY</button></div></form></dialog>
+<script src="app.js"></script>
+</body></html>

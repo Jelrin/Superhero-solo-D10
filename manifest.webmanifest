@@ -1,0 +1,18 @@
+{
+  "name": "World Without Limits",
+  "short_name": "World Limits",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0c1320",
+  "theme_color": "#101827",
+  "description": "Offline-first solo superhero tabletop RPG",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
